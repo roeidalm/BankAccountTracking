@@ -53,8 +53,8 @@ function convert(data,filename) {
     if (scrapeResultLeumi.success) {
       scrapeResultLeumi.accounts.forEach((account) => {
         console.log(`found ${account.txns.length} transactions for account number ${account.accountNumber}`);
-        saveJsonToFile(account,"./leumiJsonData.json")
-        convert(account.txns,"leumiData.xlsx")
+        saveJsonToFile(account,account.accountNumber+"leumiJsonData.json")
+        convert(account.txns,account.accountNumber+"leumiData.xlsx")
       });
     }
     else {
@@ -81,8 +81,8 @@ function convert(data,filename) {
     if (scrapeResultMax.success) {
       scrapeResultMax.accounts.forEach((account) => {
         console.log(`found ${account.txns.length} transactions for account number ${account.accountNumber}`);
-        saveJsonToFile(account,"./maxJsonData.json")
-        convert(account.txns,"maxData.xlsx")
+        saveJsonToFile(account,account.accountNumber+"maxJsonData.json")
+        convert(account.txns,account.accountNumber+"maxData.xlsx")
       });
     }
     else {
